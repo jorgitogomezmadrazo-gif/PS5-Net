@@ -1,24 +1,26 @@
-app = "CHANGE-ME-your-app-name"
-primary_region = "iad"
+# fly.toml app configuration file generated for ps5-net on 2026-11-08T06:06:29Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'ps5-net'
+primary_region = 'sjc'
 
 [build]
-
 [http_service]
   internal_port = 8080
   force_https = true
-  auto_stop_machines = "stop"
+  auto_stop_machines = 'stop'
   auto_start_machines = true
   min_machines_running = 0
 
-  # fly's default limit is ~25 simultaneous connections, and one web page easily opens more than that
-  # (images, scripts, video chunks). Past the limit requests wait in line, which looks like a frozen or blank page.
   [http_service.concurrency]
-    type = "requests"
-    soft_limit = 200
+    type = 'requests'
     hard_limit = 250
+    soft_limit = 200
 
-# 256 MB (the default) runs out of memory on big pages and the machine restarts mid-load
 [[vm]]
-  memory = "1gb"
-  cpu_kind = "shared"
+  memory = '1gb'
+  cpu_kind = 'shared'
   cpus = 1
+  memory_mb = 512
