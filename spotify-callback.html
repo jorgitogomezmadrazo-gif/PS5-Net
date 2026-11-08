@@ -1,7 +1,0 @@
-<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Spotify sign-in</title>
-<body style="margin:0;background:#050a1c;color:#f3f7ff;font-family:system-ui,sans-serif;display:grid;place-items:center;height:100vh;text-align:center"><div><h2>Almost done…</h2><p id="m">Finishing the Spotify sign-in.</p></div>
-<script>
-var q=new URLSearchParams(location.search);
-try{localStorage.setItem("psm_cb",JSON.stringify({code:q.get("code"),state:q.get("state"),error:q.get("error"),t:Date.now()}))}catch(e){document.getElementById("m").textContent="Couldn't save the sign-in. Close this window and try again."}
-setTimeout(function(){document.getElementById("m").textContent="Signed in – you can close this window.";try{window.close()}catch(e){}},400);
-</script></body>
